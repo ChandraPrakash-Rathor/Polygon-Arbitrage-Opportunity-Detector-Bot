@@ -1,6 +1,6 @@
 # Polygon Arbitrage Bot
 
-A Rust bot that monitors the Polygon blockchain for arbitrage opportunities between QuickSwap and SushiSwap. It tracks the **WETH/USDC** trading pair, calculates potential profit, and stores opportunities in a SQLite database (`test.db`).
+A Rust bot that monitors the Polygon blockchain for arbitrage opportunities between QuickSwap and SushiSwap. It tracks the **WETH/USDC** trading pair, calculates potential profit, and stores opportunities in a SQLite database (`arbitrage.db`).
 
 ---
 
@@ -12,7 +12,7 @@ polygon-arbitrage-bot/
 ├── Cargo.toml                        # Rust dependencies
 ├── README.md                         # Project documentation
 ├── config.toml                       # Bot configuration: RPC, DEX, tokens, thresholds
-├── test.db                            # SQLite database for detected opportunities
+├── arbitrage.db                            # SQLite database for detected opportunities
 ├── src/
 │   ├── main.rs                       # Main bot logic
 │   └── db.rs                         # Database setup and connection
@@ -45,7 +45,7 @@ polygon-arbitrage-bot/
 
 ## Database Schema
 
-**Database:** `test.db`  
+**Database:** `arbitrage.db`  
 **Table:** `arbitrage_bot`
 
 | Column        | Type    | Description                          |
@@ -92,7 +92,7 @@ Place your ABI in `abi/uniswap_v2_router02_abi.json`.
 cargo run
 ```
 
-* Creates `test.db` automatically.
+* Creates `arbitrage.db` automatically.
 * Fetches prices at intervals specified in `config.toml`.
 * Example output:
 
@@ -116,7 +116,7 @@ Opportunity saved!
    * Fetches prices for 1 WETH → USDC from both DEXs.
    * Compares prices to identify profitable trades.
    * Calculates net profit after gas.
-   * Logs and saves opportunities to SQLite (`test.db`).
+   * Logs and saves opportunities to SQLite (`arbitrage.db`).
 
 ---
 
@@ -133,7 +133,7 @@ Opportunity saved!
 
 * **Start Monitoring:** `cargo run`
 * **Stop the Bot:** Ctrl+C
-* **View Opportunities:** Open `test.db` using [DB Browser for SQLite](https://sqlitebrowser.org/)
+* **View Opportunities:** Open `arbitrage.db` using [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 ```sql
 SELECT * FROM arbitrage_bot;
