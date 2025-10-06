@@ -1,4 +1,4 @@
-rpc_url = "https://polygon-mainnet.g.alchemy.com/v2/QTT3GiHFMD2C5AsOSl56t"
+rpc_url = "https://polygon-mainnet.g.alchemy.com/v2/ApiKey"
 
 [dex]
 quickswap = "0xa5E0829CaCEd8fFDD4De3c43696c57f7d7a678ff"
